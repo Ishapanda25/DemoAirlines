@@ -3,5 +3,56 @@
               
                   <div class="text-center text-styles">An online app to book flight tickets</div>
 
-
- 
+  <section id="page">
+    <header>Flight Search Engine</header>
+    
+    <nav><div class="tabs">
+        <div class="tab">
+          <input name="checkbox-tabs-group" type="radio" id="checkbox1" class="checkboxtab" checked>
+          <label for="checkbox1">One Way</label>
+          <div class="content">
+              <form>
+      
+                  <input type="text" [(ngModel)]="user.originCity" placeholder="Enter Origin City"><br>
+                  <input type="text" [(ngModel)]="user.destinationCity" placeholder="Enter Destination City"><br>
+                  <input type="date"  [(ngModel)]="user.departuredate" placeholder="Departure Date"><br>
+                  <input type="date"  [(ngModel)]="user.returnDate" placeholder="Return Date"><br>
+                  <select  [(ngModel)]="user.passengerName">
+               
+                      <option *ngFor="let pname of passengerName">
+                        {{ pname.name }}
+                      </option>
+                      <option value="" disabled hidden selected>Please select the name</option>
+                  </select> <br><br>
+                <button (click)="querySubmit()">Search</button>
+              
+              </form>
+          </div>
+        </div>
+        
+        <div class="tab">
+          <input name="checkbox-tabs-group" type="radio" id="checkbox2" class="checkboxtab">
+          <label for="checkbox2">Return</label>
+          <div class="content">
+              <form>
+      
+                  <input type="text" [(ngModel)]="user.originCity" placeholder="Enter Origin City"><br>
+                  <input type="text" [(ngModel)]="user.destinationCity" placeholder="Enter Destination City"><br>
+                  <input type="date"  [(ngModel)]="user.departuredate" placeholder="Departure Date"><br>
+                  
+                  <select  [(ngModel)]="user.passengerName">
+               
+                      <option *ngFor="let pname of passengerName">
+                        {{ pname.name }}
+                      </option>
+                      <option value="" disabled hidden selected>Please select the name</option>
+                  </select> <br><br>
+                <button (click)="querySubmit()">Search</button>
+              
+              </form>
+          </div>
+        </div></nav>
+    <main>Main area</main>
+    <footer>Footer</footer>
+  </section>
+  

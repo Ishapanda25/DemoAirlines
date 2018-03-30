@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgModule} from '@angular/core';
 
 @Component({
   selector:'app-welcome',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['welcome.component.css']
 })
 export class WelcomeComponent {
-    public pageTitle: string = "Welcome";
+
+  
+  }
 
    
-}
