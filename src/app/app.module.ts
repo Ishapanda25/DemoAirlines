@@ -1,24 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { FlightsearchComponent } from './flightsearch/flightsearch.component';
+
+import { FlightdataService } from './flightSearchService/flightdata.service';
+import { FlightviewComponent } from './flightview/flightview.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
+    FlightsearchComponent,
+    FlightviewComponent,
+ 
+    
    
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [FlightdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

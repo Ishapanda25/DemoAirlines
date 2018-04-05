@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { FlightsearchComponent } from './flightsearch/flightsearch.component';
+import { FlightviewComponent } from './flightview/flightview.component';
+
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-root',
