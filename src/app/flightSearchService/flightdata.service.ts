@@ -21,12 +21,28 @@ export class FlightdataService {
 	myHeaders.append('Content-Type', 'application/json');    
 	let myParams = new URLSearchParams();
   myParams.append('from', userForm.controls['originCity'].value);
+ 
   myParams.append('to', userForm.controls['destinationCity'].value);
         let options = new RequestOptions({ headers: myHeaders, params: myParams });
               return this.http.get("http://localhost:3000/flights", options)
                               .map(this.setData)
                               .catch(this.handleError );
     }
+
+    fetchDetails2(userForm : NgForm): 
+    Observable<FlightResults[]> {
+      let myHeaders = new Headers();
+myHeaders.append('Content-Type', 'application/json');    
+let myParams = new URLSearchParams();
+myParams.append('from', userForm.controls['originCity'].value);
+myParams.append('from', userForm.controls['destinationCity'].value);
+myParams.append('to', userForm.controls['originCity'].value);
+myParams.append('to', userForm.controls['destinationCity'].value);
+let options = new RequestOptions({ headers: myHeaders, params: myParams });
+      return this.http.get("http://localhost:3000/flights", options)
+                      .map(this.setData)
+                      .catch(this.handleError );
+}
     public setData(res:Response) {
      let results = res.json();
      return results;

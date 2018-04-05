@@ -11,7 +11,7 @@
      
      <div class="tab-content">
         <div class="tab-pane active" id="oneway"><div class ="form-shadow">
-           <form #userForm="ngForm" (ngSubmit)="submitQuery(userForm)">
+           <form #userForm="ngForm" (ngSubmit)="submitQuery1(userForm)">
             <div class="form-group">
                 <label class="input-name" for="originCity">Origin City:</label>
               <input type="text" [(ngModel)]="user.originCity" name="originCity" id="originCity" placeholder="Enter Origin City"><br>
@@ -48,7 +48,8 @@
             
             <button class="btn btn-primary">Submit</button>
           </form></div> </div>
-        <div class="tab-pane" id="return"><div class ="form-shadow"> <form>
+        <div class="tab-pane" id="return"><div class ="form-shadow"> 
+          <form #userForm="ngForm" (ngSubmit)="submitQuery2(userForm)">
             <div class="form-group">
                 <label class="input-name" for="originCity">Origin City:</label>
               <input type="text" [(ngModel)]="user.originCity" name="originCity" id="originCity" placeholder="Enter Origin City"><br>
@@ -99,8 +100,8 @@
 
   </div>
   
-  <div  class="second-column" >
-    <div class="container">
+  <div  *ngIf="showResult"  class="second-column" >
+    <div  class="container">
         <ul class="list-group list-group-flush">
             <li *ngFor="let flight of flights" class="list-group-item">
               <div class="row">
@@ -122,6 +123,31 @@
 
       </li></ul>
     </div>
+    </div>
+    <div  *ngIf="showResult1"  class="second-column" >
+    <div  class="container">
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let flight of flights" class="list-group-item">
+              <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                        <div class="card-content">
+                            <h4 class="card-title">{{user.originCity}} > {{user.destinationCity}}</h4>
+                            <div class="">
+                                <span>{{flight.flightName}}</span>
+                                <span>{{flight.date}}</span>
+                               
+                                <span>{{flight.from}}</span>
+                                <span>{{flight.to}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      </li></ul>
+    </div>
+    </div>
 
 
 
@@ -133,7 +159,7 @@
 
       <div class="card" style="width: 20rem; margin-left: 250px;">
           <div class="card-header">
-            <h3> {{user.originCity}} > {{user.destinationCity}} </h3>
+            <h3> {{user.originCity}}  {{user.destinationCity}} </h3>
           </div>
           <ul class="list-group list-group-flush">
             <li *ngFor="let flight of flights" class="list-group-item"><span>{{flight.flightName}}</span></li>
@@ -143,4 +169,4 @@
 
 
     
-  </div>
+ 

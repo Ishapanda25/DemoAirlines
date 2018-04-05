@@ -13,16 +13,26 @@ import { FlightviewComponent } from 'C:/Users/isha.panda/MyApp/src/app/flightvie
 export class FlightsearchComponent {
 user = new ModelUser('','','','','');
 showResults=false;
+showResults1=false;
 constructor(private dataService:FlightdataService) {
 
 }
 private flights:FlightResults[] = [];
     private errorMessage:any = '';
 
-submitQuery(userForm: NgForm)
+submitQuery1(userForm: NgForm)
 {
  this.showResults=true;
+ alert( this.showResults);
   this.dataService.fetchDetails(userForm).
+  subscribe(flights => this.flights=flights, error => console.log(error));
+ 
+}
+submitQuery2(userForm: NgForm)
+{
+ this.showResults1=true;
+ alert( this.showResults1);
+  this.dataService.fetchDetails2(userForm).
   subscribe(flights => this.flights=flights, error => console.log(error));
  
 }
